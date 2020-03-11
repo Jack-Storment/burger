@@ -1,0 +1,38 @@
+<h1>Jack's Burgers</h1>
+
+<h2>Burgers of the Day</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burger/burgers devoured=true}}
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2>Burgers You Orderd</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burger/burgers devoured=false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+<h2>Add a Burger</h2>
+<div class="create-form">
+
+    <div class="form-group">
+        <label for="burgerName">Burger Name:</label>
+        <input type="text" id="burgerName" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="devoured">Wanna try before you buy?</label><br>
+        <input type="radio" name="devoured" value="1" checked> Eaten!<br>
+        <input type="radio" name="devoured" value="0"> To the table!
+    </div>
+
+    <button class='burgerBtn'>Add Burger</button>
+</div>
